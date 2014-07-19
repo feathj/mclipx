@@ -1,0 +1,481 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		812AFF7A197B37500053FEED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812AFF79197B37500053FEED /* Cocoa.framework */; };
+		812AFF84197B37500053FEED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 812AFF82197B37500053FEED /* InfoPlist.strings */; };
+		812AFF86197B37500053FEED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 812AFF85197B37500053FEED /* main.m */; };
+		812AFF8A197B37500053FEED /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 812AFF88197B37500053FEED /* Credits.rtf */; };
+		812AFF8D197B37500053FEED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 812AFF8C197B37500053FEED /* AppDelegate.m */; };
+		812AFF90197B37500053FEED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 812AFF8E197B37500053FEED /* MainMenu.xib */; };
+		812AFF92197B37500053FEED /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 812AFF91197B37500053FEED /* Images.xcassets */; };
+		812AFF99197B37510053FEED /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812AFF98197B37510053FEED /* XCTest.framework */; };
+		812AFF9A197B37510053FEED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812AFF79197B37500053FEED /* Cocoa.framework */; };
+		812AFFA2197B37510053FEED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 812AFFA0197B37510053FEED /* InfoPlist.strings */; };
+		812AFFA4197B37510053FEED /* mclipxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 812AFFA3197B37510053FEED /* mclipxTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		812AFF9B197B37510053FEED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 812AFF6E197B37500053FEED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 812AFF75197B37500053FEED;
+			remoteInfo = mclipx;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		812AFF76197B37500053FEED /* mclipx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mclipx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		812AFF79197B37500053FEED /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		812AFF7C197B37500053FEED /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		812AFF7D197B37500053FEED /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		812AFF7E197B37500053FEED /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		812AFF81197B37500053FEED /* mclipx-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mclipx-Info.plist"; sourceTree = "<group>"; };
+		812AFF83197B37500053FEED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		812AFF85197B37500053FEED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		812AFF87197B37500053FEED /* mclipx-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mclipx-Prefix.pch"; sourceTree = "<group>"; };
+		812AFF89197B37500053FEED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		812AFF8B197B37500053FEED /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		812AFF8C197B37500053FEED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		812AFF8F197B37500053FEED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		812AFF91197B37500053FEED /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		812AFF97197B37510053FEED /* mclipxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mclipxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		812AFF98197B37510053FEED /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		812AFF9F197B37510053FEED /* mclipxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mclipxTests-Info.plist"; sourceTree = "<group>"; };
+		812AFFA1197B37510053FEED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		812AFFA3197B37510053FEED /* mclipxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mclipxTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		812AFF73197B37500053FEED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812AFF7A197B37500053FEED /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		812AFF94197B37510053FEED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812AFF9A197B37510053FEED /* Cocoa.framework in Frameworks */,
+				812AFF99197B37510053FEED /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		812AFF6D197B37500053FEED = {
+			isa = PBXGroup;
+			children = (
+				812AFF7F197B37500053FEED /* mclipx */,
+				812AFF9D197B37510053FEED /* mclipxTests */,
+				812AFF78197B37500053FEED /* Frameworks */,
+				812AFF77197B37500053FEED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		812AFF77197B37500053FEED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				812AFF76197B37500053FEED /* mclipx.app */,
+				812AFF97197B37510053FEED /* mclipxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		812AFF78197B37500053FEED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				812AFF79197B37500053FEED /* Cocoa.framework */,
+				812AFF98197B37510053FEED /* XCTest.framework */,
+				812AFF7B197B37500053FEED /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		812AFF7B197B37500053FEED /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				812AFF7C197B37500053FEED /* AppKit.framework */,
+				812AFF7D197B37500053FEED /* CoreData.framework */,
+				812AFF7E197B37500053FEED /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		812AFF7F197B37500053FEED /* mclipx */ = {
+			isa = PBXGroup;
+			children = (
+				812AFF8B197B37500053FEED /* AppDelegate.h */,
+				812AFF8C197B37500053FEED /* AppDelegate.m */,
+				812AFF8E197B37500053FEED /* MainMenu.xib */,
+				812AFF91197B37500053FEED /* Images.xcassets */,
+				812AFF80197B37500053FEED /* Supporting Files */,
+			);
+			path = mclipx;
+			sourceTree = "<group>";
+		};
+		812AFF80197B37500053FEED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				812AFF81197B37500053FEED /* mclipx-Info.plist */,
+				812AFF82197B37500053FEED /* InfoPlist.strings */,
+				812AFF85197B37500053FEED /* main.m */,
+				812AFF87197B37500053FEED /* mclipx-Prefix.pch */,
+				812AFF88197B37500053FEED /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		812AFF9D197B37510053FEED /* mclipxTests */ = {
+			isa = PBXGroup;
+			children = (
+				812AFFA3197B37510053FEED /* mclipxTests.m */,
+				812AFF9E197B37510053FEED /* Supporting Files */,
+			);
+			path = mclipxTests;
+			sourceTree = "<group>";
+		};
+		812AFF9E197B37510053FEED /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				812AFF9F197B37510053FEED /* mclipxTests-Info.plist */,
+				812AFFA0197B37510053FEED /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		812AFF75197B37500053FEED /* mclipx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 812AFFA7197B37510053FEED /* Build configuration list for PBXNativeTarget "mclipx" */;
+			buildPhases = (
+				812AFF72197B37500053FEED /* Sources */,
+				812AFF73197B37500053FEED /* Frameworks */,
+				812AFF74197B37500053FEED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mclipx;
+			productName = mclipx;
+			productReference = 812AFF76197B37500053FEED /* mclipx.app */;
+			productType = "com.apple.product-type.application";
+		};
+		812AFF96197B37510053FEED /* mclipxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 812AFFAA197B37510053FEED /* Build configuration list for PBXNativeTarget "mclipxTests" */;
+			buildPhases = (
+				812AFF93197B37510053FEED /* Sources */,
+				812AFF94197B37510053FEED /* Frameworks */,
+				812AFF95197B37510053FEED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				812AFF9C197B37510053FEED /* PBXTargetDependency */,
+			);
+			name = mclipxTests;
+			productName = mclipxTests;
+			productReference = 812AFF97197B37510053FEED /* mclipxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		812AFF6E197B37500053FEED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					812AFF96197B37510053FEED = {
+						TestTargetID = 812AFF75197B37500053FEED;
+					};
+				};
+			};
+			buildConfigurationList = 812AFF71197B37500053FEED /* Build configuration list for PBXProject "mclipx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 812AFF6D197B37500053FEED;
+			productRefGroup = 812AFF77197B37500053FEED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				812AFF75197B37500053FEED /* mclipx */,
+				812AFF96197B37510053FEED /* mclipxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		812AFF74197B37500053FEED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812AFF84197B37500053FEED /* InfoPlist.strings in Resources */,
+				812AFF92197B37500053FEED /* Images.xcassets in Resources */,
+				812AFF8A197B37500053FEED /* Credits.rtf in Resources */,
+				812AFF90197B37500053FEED /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		812AFF95197B37510053FEED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812AFFA2197B37510053FEED /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		812AFF72197B37500053FEED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812AFF8D197B37500053FEED /* AppDelegate.m in Sources */,
+				812AFF86197B37500053FEED /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		812AFF93197B37510053FEED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812AFFA4197B37510053FEED /* mclipxTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		812AFF9C197B37510053FEED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 812AFF75197B37500053FEED /* mclipx */;
+			targetProxy = 812AFF9B197B37510053FEED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		812AFF82197B37500053FEED /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812AFF83197B37500053FEED /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		812AFF88197B37500053FEED /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812AFF89197B37500053FEED /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		812AFF8E197B37500053FEED /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812AFF8F197B37500053FEED /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		812AFFA0197B37510053FEED /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812AFFA1197B37510053FEED /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		812AFFA5197B37510053FEED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		812AFFA6197B37510053FEED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		812AFFA8197B37510053FEED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mclipx/mclipx-Prefix.pch";
+				INFOPLIST_FILE = "mclipx/mclipx-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		812AFFA9197B37510053FEED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mclipx/mclipx-Prefix.pch";
+				INFOPLIST_FILE = "mclipx/mclipx-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		812AFFAB197B37510053FEED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mclipx.app/Contents/MacOS/mclipx";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mclipx/mclipx-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "mclipxTests/mclipxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		812AFFAC197B37510053FEED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/mclipx.app/Contents/MacOS/mclipx";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "mclipx/mclipx-Prefix.pch";
+				INFOPLIST_FILE = "mclipxTests/mclipxTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		812AFF71197B37500053FEED /* Build configuration list for PBXProject "mclipx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				812AFFA5197B37510053FEED /* Debug */,
+				812AFFA6197B37510053FEED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		812AFFA7197B37510053FEED /* Build configuration list for PBXNativeTarget "mclipx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				812AFFA8197B37510053FEED /* Debug */,
+				812AFFA9197B37510053FEED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		812AFFAA197B37510053FEED /* Build configuration list for PBXNativeTarget "mclipxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				812AFFAB197B37510053FEED /* Debug */,
+				812AFFAC197B37510053FEED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 812AFF6E197B37500053FEED /* Project object */;
+}
