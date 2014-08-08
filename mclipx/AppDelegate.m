@@ -23,6 +23,7 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 }
 
 @synthesize shortcutView;
+@synthesize statusMenu;
 @synthesize statusItem;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -32,6 +33,7 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     
     // create tray icon
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem setMenu:statusMenu];
     [statusItem setImage:[NSImage imageNamed:@"clipboard_16.png"]];
     
     // register shortcut listener

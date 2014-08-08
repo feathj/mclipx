@@ -13,6 +13,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, weak) IBOutlet MASShortcutView *shortcutView;
-@property (nonatomic, weak) IBOutlet NSStatusItem *statusItem;
+@property (strong, nonatomic) IBOutlet NSMenu *statusMenu;
+@property (strong, nonatomic) NSStatusItem *statusItem;
 
 @end
