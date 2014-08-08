@@ -7,7 +7,14 @@
 //
 
 #import "AppDelegate.h"
-#import "FMDB.h"
+#import "FMDatabase.h"
+
+#import "MASShortcutView.h"
+#import "MASShortcutView+UserDefaults.h"
+#import "MASShortcut+UserDefaults.h"
+#import "MASShortcut+Monitoring.h"
+
+NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 
 @implementation AppDelegate {
     NSInteger lastChangeCount;
@@ -15,18 +22,50 @@
     FMDatabase *db;
 }
 
+@synthesize shortcutView;
+@synthesize statusItem;
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Init globals
     [self initDB];
     pboard = [NSPasteboard generalPasteboard];
     
-    // run polling timer
-    [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(pollPasteboard:) userInfo:nil repeats:YES];
+    // create tray icon
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    [statusItem setImage:[NSImage imageNamed:@"clipboard_16.png"]];
     
+    // register shortcut listener
+    shortcutView.associatedUserDefaultsKey = MASPreferenceKeyShortcut;
+    MASShortcut *shortcut = [MASShortcut shortcutWithKeyCode:kVK_ANSI_V modifierFlags:NSCommandKeyMask|NSShiftKeyMask];
+    [MASShortcut addGlobalHotkeyMonitorWithShortcut:shortcut handler:^{
+        [self hotkeyHit];
+    }];
+
+    // run polling timer for pasteboard changes
+    [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(pollPasteboard:) userInfo:nil repeats:YES];
 }
+
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // cleanup
     [db close];
+}
+
+- (void)initDB {
+    db = [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
+    [db open];
+
+    FMResultSet *s = [db executeQuery:@"SELECT name \
+                      FROM sqlite_master \
+                      WHERE type='table' \
+                      AND name='pasteboard';"];
+    if (![s next]){
+        [db executeStatements:@"CREATE TABLE pasteboard( \
+         id INTEGER PRIMARY KEY AUTOINCREMENT, \
+         inferred_type VARCHAR(255), \
+         pasteboard_text text, \
+         timestamp DATETIME DEFAULT CURRENT_TIMESTAMP \
+         );"];
+    }
 }
 
 - (void)pollPasteboard:(NSTimer *)timer {
@@ -47,22 +86,8 @@
                         VALUES(:inferred_type,:pasteboard_text);" withParameterDictionary:argsDict];
 }
 
-- (void)initDB {
-    db = [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
-    [db open];
-    
-    FMResultSet *s = [db executeQuery:@"SELECT name \
-                                        FROM sqlite_master \
-                                        WHERE type='table' \
-                                        AND name='pasteboard';"];
-    if (![s next]){
-        [db executeStatements:@"CREATE TABLE pasteboard( \
-                                    id INTEGER PRIMARY KEY AUTOINCREMENT, \
-                                    inferred_type VARCHAR(255), \
-                                    pasteboard_text text, \
-                                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP \
-                                );"];
-    }
+- (void)hotkeyHit {
+    NSLog(@"Hotkey Hit");
 }
 
 @end
