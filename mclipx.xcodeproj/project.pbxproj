@@ -19,6 +19,8 @@
 		812AFF9A197B37510053FEED /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812AFF79197B37500053FEED /* Cocoa.framework */; };
 		812AFFA2197B37510053FEED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 812AFFA0197B37510053FEED /* InfoPlist.strings */; };
 		812AFFA4197B37510053FEED /* mclipxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 812AFFA3197B37510053FEED /* mclipxTests.m */; };
+		815502B21995AB1E00CF9125 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 815502B01995AB1E00CF9125 /* MainWindowController.m */; };
+		815502B31995AB1E00CF9125 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 815502B11995AB1E00CF9125 /* MainWindowController.xib */; };
 		81DBE98E199522F000CC6DA4 /* clipboard_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DBE98D199522F000CC6DA4 /* clipboard_16.png */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,9 @@
 		812AFF9F197B37510053FEED /* mclipxTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mclipxTests-Info.plist"; sourceTree = "<group>"; };
 		812AFFA1197B37510053FEED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		812AFFA3197B37510053FEED /* mclipxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mclipxTests.m; sourceTree = "<group>"; };
+		815502AF1995AB1E00CF9125 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
+		815502B01995AB1E00CF9125 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
+		815502B11995AB1E00CF9125 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		81DBE98D199522F000CC6DA4 /* clipboard_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipboard_16.png; sourceTree = "<group>"; };
 		F4C25E4AC56F461D8D412ECE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +134,9 @@
 				812AFF8E197B37500053FEED /* MainMenu.xib */,
 				812AFF91197B37500053FEED /* Images.xcassets */,
 				812AFF80197B37500053FEED /* Supporting Files */,
+				815502AF1995AB1E00CF9125 /* MainWindowController.h */,
+				815502B01995AB1E00CF9125 /* MainWindowController.m */,
+				815502B11995AB1E00CF9125 /* MainWindowController.xib */,
 			);
 			path = mclipx;
 			sourceTree = "<group>";
@@ -245,6 +253,7 @@
 				812AFF92197B37500053FEED /* Images.xcassets in Resources */,
 				812AFF8A197B37500053FEED /* Credits.rtf in Resources */,
 				81DBE98E199522F000CC6DA4 /* clipboard_16.png in Resources */,
+				815502B31995AB1E00CF9125 /* MainWindowController.xib in Resources */,
 				812AFF90197B37500053FEED /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815502B21995AB1E00CF9125 /* MainWindowController.m in Sources */,
 				812AFF8D197B37500053FEED /* AppDelegate.m in Sources */,
 				812AFF86197B37500053FEED /* main.m in Sources */,
 			);

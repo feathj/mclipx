@@ -14,12 +14,16 @@
 #import "MASShortcut+UserDefaults.h"
 #import "MASShortcut+Monitoring.h"
 
+#import "MainWindowController.h"
+
 NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 
 @implementation AppDelegate {
     NSInteger lastChangeCount;
     NSPasteboard *pboard;
     FMDatabase *db;
+    MainWindowController *mainWindow;
+    
 }
 
 @synthesize shortcutView;
@@ -35,6 +39,9 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setMenu:statusMenu];
     [statusItem setImage:[NSImage imageNamed:@"clipboard_16.png"]];
+    
+    // create main window
+    mainWindow = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
     
     // register shortcut listener
     shortcutView.associatedUserDefaultsKey = MASPreferenceKeyShortcut;
@@ -89,7 +96,8 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 }
 
 - (void)hotkeyHit {
-    NSLog(@"Hotkey Hit");
+    //NSLog(@"Hotkey Hit");
+    [mainWindow showWindow:self];
 }
 
 @end
