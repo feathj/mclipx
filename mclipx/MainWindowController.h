@@ -7,9 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class FMDatabase;
 
 @interface MainWindowController : NSWindowController
 @property (weak) IBOutlet NSTableView *tableView;
 @property (weak) IBOutlet NSTextField *searchField;
+@property FMDatabase *db;
+@property NSMutableArray *tableItems;
 
 @end

@@ -42,6 +42,7 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     
     // create main window
     mainWindow = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
+    [mainWindow setDb:db];
     
     // register shortcut listener
     shortcutView.associatedUserDefaultsKey = MASPreferenceKeyShortcut;
