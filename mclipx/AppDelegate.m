@@ -97,8 +97,13 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 }
 
 - (void)hotkeyHit {
-    //NSLog(@"Hotkey Hit");
+    NSRunningApplication *focusVictim = [[NSWorkspace sharedWorkspace] frontmostApplication];
+    
+    [mainWindow setFocusVictim:focusVictim];
+    [NSApp activateIgnoringOtherApps:YES];
+    [mainWindow.window setLevel:NSStatusWindowLevel];
     [mainWindow showWindow:self];
+    [mainWindow focusSearch];
 }
 
 @end

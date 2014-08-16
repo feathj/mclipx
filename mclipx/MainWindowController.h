@@ -14,5 +14,8 @@
 @property (weak) IBOutlet NSTextField *searchField;
 @property FMDatabase *db;
 @property NSMutableArray *tableItems;
+@property NSRunningApplication *focusVictim;
+
+- (void) focusSearch;
 
 @end

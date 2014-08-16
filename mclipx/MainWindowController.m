@@ -21,6 +21,7 @@
 @synthesize tableView;
 @synthesize db;
 @synthesize tableItems;
+@synthesize focusVictim;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -35,12 +36,52 @@
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector {
     if (commandSelector == @selector(moveDown:)){
         [self.window makeFirstResponder: tableView];
+    } else if (commandSelector == @selector(cancelOperation:)){
+        [self close];
     }
     return NO;
 }
 
-- (void)windowDidLoad
-{
+-(void)focusSearch{
+    [self.window makeFirstResponder: searchField];
+}
+
+- (void)keyDown:(NSEvent *)theEvent {
+    if (theEvent.keyCode == 36){
+        [self itemChosen: [tableView selectedRow]];
+    }
+}
+
+- (void)itemChosen:(NSInteger)row {
+    NSDictionary *currentRecord = [tableItems objectAtIndex:row];
+    NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
+    [pasteBoard clearContents];
+    [pasteBoard setString:[currentRecord objectForKey:@"pasteboard_text"] forType:NSPasteboardTypeString];
+    
+    [self close];
+    [[self focusVictim] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+    sleep(1);
+    [self runPaste];
+}
+
+- (void)runPaste{
+    CGEventSourceRef sourceRef = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
+    if (!sourceRef){
+        NSLog(@"No event source");
+        return;
+    }
+    CGEventRef eventDown = CGEventCreateKeyboardEvent(sourceRef, (CGKeyCode)9, true);
+    CGEventSetFlags(eventDown, kCGEventFlagMaskCommand);
+    CGEventRef eventUp = CGEventCreateKeyboardEvent(sourceRef, (CGKeyCode)9, false);
+    CGEventPost(kCGHIDEventTap, eventDown);
+    CGEventPost(kCGHIDEventTap, eventUp);
+    CFRelease(eventDown);
+    CFRelease(eventUp);
+    CFRelease(sourceRef);
+}
+
+
+- (void)windowDidLoad {
     [super windowDidLoad];
     
     [tableView setDataSource:self];
@@ -77,7 +118,6 @@
     
 }
 
-//- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 -(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     // create view (TODO: recycle)
     NSTextView *result = [[NSTextView alloc] init];
