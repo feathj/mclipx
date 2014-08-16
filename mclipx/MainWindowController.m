@@ -9,6 +9,7 @@
 #import "MainWindowController.h"
 
 #import "FMDatabase.h"
+#import "MGSFragaria.h"
 
 @interface MainWindowController ()
 
@@ -31,11 +32,19 @@
     return self;
 }
 
+- (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector {
+    if (commandSelector == @selector(moveDown:)){
+        [self.window makeFirstResponder: tableView];
+    }
+    return NO;
+}
+
 - (void)windowDidLoad
 {
     [super windowDidLoad];
     
     [tableView setDataSource:self];
+    [tableView setDelegate:self];
     [searchField setDelegate:self];
     
     // initial refresh
@@ -68,22 +77,22 @@
     
 }
 
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex {
-//    // recycle cells
-//    NSTextField *result = [tableView makeViewWithIdentifier:@"MainWindowController" owner:self];
-//    if (result == nil) {
-//        result = [[NSTextField alloc] init];
-//        result.identifier = @"MainWindowController";
-//    }
+//- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+-(NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    // create view (TODO: recycle)
+    NSTextView *result = [[NSTextView alloc] init];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
     
+    [result setDefaultParagraphStyle:paragraphStyle];
     
-    // current record
-    NSDictionary *currentRecord = [tableItems objectAtIndex:rowIndex];
-    return [currentRecord objectForKey:@"pasteboard_text"];
+    // pull current record
+    NSDictionary *currentRecord = [tableItems objectAtIndex:row];
+    NSArray *textLines = [[currentRecord objectForKey:@"pasteboard_text"] componentsSeparatedByString:@"\n"];
     
-//    result.stringValue = [currentRecord objectForKey:@"pasteboard_text"];
-//    
-//    return result;
+    [result setString:[textLines objectAtIndex:0]];
+    
+    return result;
 }
 
 @end
