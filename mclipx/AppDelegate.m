@@ -40,6 +40,9 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     [statusItem setMenu:statusMenu];
     [statusItem setImage:[NSImage imageNamed:@"clipboard_16.png"]];
     
+    // link up menu action(s)
+    [[statusMenu itemWithTitle:@"Quit"] setAction:@selector(terminate:)];
+    
     // create main window
     mainWindow = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
     [mainWindow setDb:db];

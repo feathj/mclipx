@@ -19,13 +19,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="CIt-5J-FCx">
             <items>
-                <menuItem title="Item 1" id="H9a-8F-xfm">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Item 2" id="lS7-I0-3D7">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Item 3" id="WIN-kq-cM9">
+                <menuItem title="Quit" id="H9a-8F-xfm">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
             </items>
