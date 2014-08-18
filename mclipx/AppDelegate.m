@@ -76,8 +76,17 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
          id INTEGER PRIMARY KEY AUTOINCREMENT, \
          inferred_type VARCHAR(255), \
          pasteboard_text text, \
+         pasteboard_change_count INTEGER, \
          timestamp DATETIME DEFAULT CURRENT_TIMESTAMP \
          );"];
+        lastChangeCount = 0;
+    } else {
+        s = [db executeQuery:@"SELECT pasteboard_change_count \
+             FROM pasteboard \
+             ORDER BY ID DESC \
+             LIMIT 1"];
+        [s next];
+        lastChangeCount = [s intForColumn:@"pasteboard_change_count"];
     }
 }
 
@@ -86,17 +95,18 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     
     if (currentChangeCount != lastChangeCount){
         lastChangeCount = currentChangeCount;
-        [self pasteboardChanged:[pboard stringForType:NSPasteboardTypeString]];
+        [self pasteboardChanged:[pboard stringForType:NSPasteboardTypeString] changeCount:currentChangeCount];
     }
 }
 
-- (void)pasteboardChanged:(NSString *)pasteboardText {
+- (void)pasteboardChanged:(NSString *)pasteboardText changeCount:(NSInteger) changeCount {
     // create record in db
     // TODO: infer type
-    NSString *inferredType = @"Python";
-    NSDictionary *argsDict = [NSDictionary dictionaryWithObjectsAndKeys:pasteboardText, @"pasteboard_text", inferredType, @"inferred_type", nil];
-    [db executeUpdate:@"INSERT INTO pasteboard(inferred_type,pasteboard_text) \
-                        VALUES(:inferred_type,:pasteboard_text);" withParameterDictionary:argsDict];
+    NSString *inferredType = @"Text";
+    NSString* sChangeCount = [NSString stringWithFormat:@"%ld", (long)changeCount];
+    NSDictionary *argsDict = [NSDictionary dictionaryWithObjectsAndKeys:pasteboardText, @"pasteboard_text", inferredType, @"inferred_type", sChangeCount, @"pasteboard_change_count", nil];
+    [db executeUpdate:@"INSERT INTO pasteboard(inferred_type,pasteboard_text,pasteboard_change_count) \
+                        VALUES(:inferred_type,:pasteboard_text,:pasteboard_change_count);" withParameterDictionary:argsDict];
 }
 
 - (void)hotkeyHit {
