@@ -37,6 +37,8 @@
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector {
     if (commandSelector == @selector(moveDown:)){
         [self.window makeFirstResponder: tableView];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+        [tableView selectRowIndexes:indexSet byExtendingSelection:NO];
     } else if (commandSelector == @selector(cancelOperation:)){
         [self closeAndRefocus];
     }
@@ -48,13 +50,19 @@
     [self closeAndRefocus];
 }
 
--(void)focusSearch {
+-(void)focusSearchWithCharacters:(NSString*)characters {
     [self.window makeFirstResponder: searchField];
+    if (characters){
+        [searchField setStringValue:characters];
+        [[searchField currentEditor] moveToEndOfLine:nil];
+    }
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
     if (theEvent.keyCode == 36){
         [self itemChosen: [tableView selectedRow]];
+    } else {
+        [self focusSearchWithCharacters:theEvent.characters];
     }
 }
 
