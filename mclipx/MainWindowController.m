@@ -33,16 +33,22 @@
     return self;
 }
 
+// Handle textView commands to allow down arrow to focus table and escape to close
 - (BOOL)control:(NSControl *)control textView:(NSTextView *)fieldEditor doCommandBySelector:(SEL)commandSelector {
     if (commandSelector == @selector(moveDown:)){
         [self.window makeFirstResponder: tableView];
     } else if (commandSelector == @selector(cancelOperation:)){
-        [self close];
+        [self closeAndRefocus];
     }
     return NO;
 }
 
--(void)focusSearch{
+// Escape to close in table delegate
+- (void)cancelOperation:(id)sender {
+    [self closeAndRefocus];
+}
+
+-(void)focusSearch {
     [self.window makeFirstResponder: searchField];
 }
 
@@ -50,6 +56,11 @@
     if (theEvent.keyCode == 36){
         [self itemChosen: [tableView selectedRow]];
     }
+}
+
+- (void)closeAndRefocus {
+    [self close];
+    [[self focusVictim] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
 }
 
 - (void)itemChosen:(NSInteger)row {
