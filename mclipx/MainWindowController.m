@@ -147,7 +147,6 @@
     NSTextView *result = [[NSTextView alloc] init];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
-    
     [result setDefaultParagraphStyle:paragraphStyle];
     
     // pull current record
