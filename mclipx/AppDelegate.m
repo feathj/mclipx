@@ -116,7 +116,7 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     [NSApp activateIgnoringOtherApps:YES];
     [mainWindow.window setLevel:NSStatusWindowLevel];
     [mainWindow showWindow:self];
-    [mainWindow focusSearch];
+    [mainWindow focusSearchWithCharacters:@""];
 }
 
 @end

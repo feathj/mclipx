@@ -55,6 +55,7 @@
     if (characters){
         [searchField setStringValue:characters];
         [[searchField currentEditor] moveToEndOfLine:nil];
+        [self refreshTable];
     }
 }
 
@@ -73,6 +74,10 @@
 
 - (void)itemChosen:(NSInteger)row {
     NSDictionary *currentRecord = [tableItems objectAtIndex:row];
+
+    // remove chosen record so it bubbles up to top as most recent
+    [db executeUpdate:@"DELETE FROM pasteboard WHERE id = ?", [NSNumber numberWithInt:[[currentRecord valueForKey:@"id"] intValue]]];
+
     NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
     [pasteBoard clearContents];
     [pasteBoard setString:[currentRecord objectForKey:@"pasteboard_text"] forType:NSPasteboardTypeString];
@@ -83,7 +88,7 @@
     [self runPaste];
 }
 
-- (void)runPaste{
+- (void)runPaste {
     CGEventSourceRef sourceRef = CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
     if (!sourceRef){
         NSLog(@"No event source");

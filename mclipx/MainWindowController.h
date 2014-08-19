@@ -16,6 +16,6 @@
 @property NSMutableArray *tableItems;
 @property NSRunningApplication *focusVictim;
 
-- (void) focusSearch;
+-(void)focusSearchWithCharacters:(NSString*)characters;
 
 @end
