@@ -64,7 +64,10 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 }
 
 - (void)initDB {
-    db = [FMDatabase databaseWithPath:@"/tmp/tmp.db"];
+    NSString *homeDirectory = NSHomeDirectory();
+    NSString *dbPath = [homeDirectory stringByAppendingPathComponent:@".mclipbx.db"];
+
+    db = [FMDatabase databaseWithPath:dbPath];
     [db open];
 
     FMResultSet *s = [db executeQuery:@"SELECT name \
