@@ -95,7 +95,12 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     
     if (currentChangeCount != lastChangeCount){
         lastChangeCount = currentChangeCount;
-        [self pasteboardChanged:[pboard stringForType:NSPasteboardTypeString] changeCount:currentChangeCount];
+        // check if blank string or whitespace only
+        NSString* pasteboardText = [pboard stringForType:NSPasteboardTypeString];
+        NSString* trimmedPasteboardText = [pasteboardText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if ([trimmedPasteboardText length] > 0) {
+            [self pasteboardChanged: pasteboardText changeCount:currentChangeCount];
+        }
     }
 }
 
