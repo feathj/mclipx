@@ -21,6 +21,10 @@
 		812AFFA4197B37510053FEED /* mclipxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 812AFFA3197B37510053FEED /* mclipxTests.m */; };
 		815502B21995AB1E00CF9125 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 815502B01995AB1E00CF9125 /* MainWindowController.m */; };
 		815502B31995AB1E00CF9125 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 815502B11995AB1E00CF9125 /* MainWindowController.xib */; };
+		81B9179419AD652000A03DC6 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B9179219AD652000A03DC6 /* PreferencesWindowController.m */; };
+		81B9179519AD652000A03DC6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B9179319AD652000A03DC6 /* PreferencesWindowController.xib */; };
+		81B9179919AD7AB100A03DC6 /* RunningApplicationsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B9179719AD7AB100A03DC6 /* RunningApplicationsWindowController.m */; };
+		81B9179A19AD7AB100A03DC6 /* RunningApplicationsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B9179819AD7AB100A03DC6 /* RunningApplicationsWindowController.xib */; };
 		81DBE98E199522F000CC6DA4 /* clipboard_16.png in Resources */ = {isa = PBXBuildFile; fileRef = 81DBE98D199522F000CC6DA4 /* clipboard_16.png */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +62,12 @@
 		815502AF1995AB1E00CF9125 /* MainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindowController.h; sourceTree = "<group>"; };
 		815502B01995AB1E00CF9125 /* MainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindowController.m; sourceTree = "<group>"; };
 		815502B11995AB1E00CF9125 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
+		81B9179119AD652000A03DC6 /* PreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesWindowController.h; sourceTree = "<group>"; };
+		81B9179219AD652000A03DC6 /* PreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesWindowController.m; sourceTree = "<group>"; };
+		81B9179319AD652000A03DC6 /* PreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
+		81B9179619AD7AB100A03DC6 /* RunningApplicationsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningApplicationsWindowController.h; sourceTree = "<group>"; };
+		81B9179719AD7AB100A03DC6 /* RunningApplicationsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningApplicationsWindowController.m; sourceTree = "<group>"; };
+		81B9179819AD7AB100A03DC6 /* RunningApplicationsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RunningApplicationsWindowController.xib; sourceTree = "<group>"; };
 		81DBE98D199522F000CC6DA4 /* clipboard_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipboard_16.png; sourceTree = "<group>"; };
 		F4C25E4AC56F461D8D412ECE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +147,12 @@
 				815502AF1995AB1E00CF9125 /* MainWindowController.h */,
 				815502B01995AB1E00CF9125 /* MainWindowController.m */,
 				815502B11995AB1E00CF9125 /* MainWindowController.xib */,
+				81B9179119AD652000A03DC6 /* PreferencesWindowController.h */,
+				81B9179219AD652000A03DC6 /* PreferencesWindowController.m */,
+				81B9179319AD652000A03DC6 /* PreferencesWindowController.xib */,
+				81B9179619AD7AB100A03DC6 /* RunningApplicationsWindowController.h */,
+				81B9179719AD7AB100A03DC6 /* RunningApplicationsWindowController.m */,
+				81B9179819AD7AB100A03DC6 /* RunningApplicationsWindowController.xib */,
 			);
 			path = mclipx;
 			sourceTree = "<group>";
@@ -250,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				812AFF84197B37500053FEED /* InfoPlist.strings in Resources */,
+				81B9179519AD652000A03DC6 /* PreferencesWindowController.xib in Resources */,
 				812AFF92197B37500053FEED /* Images.xcassets in Resources */,
 				812AFF8A197B37500053FEED /* Credits.rtf in Resources */,
+				81B9179A19AD7AB100A03DC6 /* RunningApplicationsWindowController.xib in Resources */,
 				81DBE98E199522F000CC6DA4 /* clipboard_16.png in Resources */,
 				815502B31995AB1E00CF9125 /* MainWindowController.xib in Resources */,
 				812AFF90197B37500053FEED /* MainMenu.xib in Resources */,
@@ -306,8 +324,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81B9179919AD7AB100A03DC6 /* RunningApplicationsWindowController.m in Sources */,
 				815502B21995AB1E00CF9125 /* MainWindowController.m in Sources */,
 				812AFF8D197B37500053FEED /* AppDelegate.m in Sources */,
+				81B9179419AD652000A03DC6 /* PreferencesWindowController.m in Sources */,
 				812AFF86197B37500053FEED /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

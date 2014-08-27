@@ -19,6 +19,9 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <menu id="CIt-5J-FCx">
             <items>
+                <menuItem title="Preferences" id="Eiy-vV-IZO">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
                 <menuItem title="Quit" id="H9a-8F-xfm">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>

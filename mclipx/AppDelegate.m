@@ -15,6 +15,7 @@
 #import "MASShortcut+Monitoring.h"
 
 #import "MainWindowController.h"
+#import "PreferencesWindowController.h"
 
 NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 
@@ -23,6 +24,7 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     NSPasteboard *pboard;
     FMDatabase *db;
     MainWindowController *mainWindow;
+    PreferencesWindowController *preferencesWindow;
     
 }
 
@@ -41,11 +43,16 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     [statusItem setImage:[NSImage imageNamed:@"clipboard_16.png"]];
     
     // link up menu action(s)
+    [[statusMenu itemWithTitle:@"Preferences"] setAction:@selector(preferences:)];
     [[statusMenu itemWithTitle:@"Quit"] setAction:@selector(terminate:)];
     
     // create main window
     mainWindow = [[MainWindowController alloc] initWithWindowNibName:@"MainWindowController"];
     [mainWindow setDb:db];
+    
+    // create preferences window
+    preferencesWindow = [[PreferencesWindowController alloc] initWithWindowNibName:@"PreferencesWindowController"];
+    
     
     // register shortcut listener
     shortcutView.associatedUserDefaultsKey = MASPreferenceKeyShortcut;
@@ -56,6 +63,10 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
 
     // run polling timer for pasteboard changes
     [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(pollPasteboard:) userInfo:nil repeats:YES];
+}
+
+- (void)preferences:(id)sender {
+    [preferencesWindow showWindow:self];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
