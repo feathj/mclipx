@@ -109,11 +109,18 @@ NSString *const MASPreferenceKeyShortcut = @"MClipXShortcut";
     
     if (currentChangeCount != lastChangeCount){
         lastChangeCount = currentChangeCount;
-        // check if blank string or whitespace only
-        NSString* pasteboardText = [pboard stringForType:NSPasteboardTypeString];
-        NSString* trimmedPasteboardText = [pasteboardText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        if ([trimmedPasteboardText length] > 0) {
-            [self pasteboardChanged: pasteboardText changeCount:currentChangeCount];
+
+        // check if excluded application
+        NSArray *exclusionApps = [[NSUserDefaults standardUserDefaults] arrayForKey:@"ExclusionApps"];
+        NSString *currentActiveApp = [[[NSWorkspace sharedWorkspace] activeApplication] objectForKey:@"NSApplicationName"];
+        if (![exclusionApps containsObject:currentActiveApp]){
+
+            // check if blank string or whitespace only
+            NSString* pasteboardText = [pboard stringForType:NSPasteboardTypeString];
+            NSString* trimmedPasteboardText = [pasteboardText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            if ([trimmedPasteboardText length] > 0) {
+                [self pasteboardChanged: pasteboardText changeCount:currentChangeCount];
+            }
         }
     }
 }

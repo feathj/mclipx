@@ -36,11 +36,11 @@
     
     // init
     runningApplicationsWindow = [[RunningApplicationsWindowController alloc] initWithWindowNibName:@"RunningApplicationsWindowController"];
+
     
     // register data sources and delegates
-    [[self exclusionTableView] setDataSource:self];
-    [[self addRemoveExclusions] setAction:@selector(addRemoveAction:)];
-    
+    [exclusionTableView setDataSource:self];
+    [addRemoveExclusions setAction:@selector(addRemoveAction:)];
     
     // Defaults
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObject:[[NSMutableArray alloc] init] forKey:@"ExclusionApps"];
@@ -48,8 +48,28 @@
     
 }
 
+- (void)runningApplicationWindowWillClose:(NSNotification *)notification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (runningApplicationsWindow.chosenApp){
+        NSMutableArray *newList = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"ExclusionApps"]];
+        [newList addObject:runningApplicationsWindow.chosenApp];
+        [[NSUserDefaults standardUserDefaults] setObject:newList forKey:@"ExclusionApps"];
+        [exclusionTableView reloadData];
+    }
+}
+
 - (void)addRemoveAction:(id)sender {
-    [runningApplicationsWindow showWindow:self];
+    if (addRemoveExclusions.selectedSegment == 0){ // ADD
+        // register close running applications window
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(runningApplicationWindowWillClose:) name:NSWindowWillCloseNotification object:runningApplicationsWindow.window];
+        [runningApplicationsWindow showWindow:self];
+    } else if (addRemoveExclusions.selectedSegment == 1) { // REMOVE
+        NSMutableArray *newList = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"ExclusionApps"]];
+        [newList removeObjectAtIndex:[exclusionTableView selectedRow]];
+        [[NSUserDefaults standardUserDefaults] setObject:newList forKey:@"ExclusionApps"];
+        [exclusionTableView reloadData];
+    } else {
+    }
 }
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView {

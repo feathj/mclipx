@@ -11,5 +11,8 @@
 @interface RunningApplicationsWindowController : NSWindowController
 @property (weak) IBOutlet NSTableView *applicationTableView;
 @property (weak) IBOutlet NSButton *okButton;
+@property (weak) IBOutlet NSButton *cancelButton;
+
+@property NSString *chosenApp;
 
 @end
